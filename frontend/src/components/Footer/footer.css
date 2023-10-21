@@ -1,0 +1,19 @@
+.footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2vh 0vh;
+    margin-top: 5vh;
+    color: white;
+    background: #279eff;
+}
+
+.contributors{
+    list-style: none;
+}
+
+.contributors li a {
+    color: white;
+    font-size: medium;
+    text-decoration: none;
+}

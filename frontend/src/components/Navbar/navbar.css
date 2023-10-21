@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400&display=swap');
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 9vh;
+    align-content: center;
+    background-color: #279EFF;
+    align-items: center;
+}
+*:focus {
+    outline: none;
+}
+
+.logo{
+    height: 3.5vh;
+}
+
+.navs ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    font-weight: 500;
+    font-size: initial;
+    
+}
+
+.navs ul li {
+    text-decoration: none;
+    margin: 0px 1rem;
+    
+}
+
+.navlinks{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: initial;
+    font-family: Roboto;
+}
+
+.search{
+    width: 70vh;
+    height: 3.7vh;
+    border: none;
+    border-radius: 1vh;
+    color: rgb(146, 140, 140);
+}
+
+ .search :focus{
+    width: 70vh;
+    height: 3.7vh;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+}

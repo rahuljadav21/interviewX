@@ -1,0 +1,42 @@
+.slide-container{
+    display: flex;
+    flex-direction: column;
+    border-radius: 1vh;
+    margin: 1vh 1vh;
+    padding: 0px 1vh;
+    background: whitesmoke;
+    /* border: 1px solid; */
+    box-shadow: 1px 1px 7px 0px;
+    /* height: 23vh; */
+    justify-content: space-between;
+}
+
+.company-name {
+    color: #279EFF;
+    font-size: 22px;
+    width: 25vh;
+}
+
+.sec1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.sec2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 2vh;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.drive-type{
+    background: #279eff;
+    color: white;
+    border-radius: 3vh;
+    padding: 1vh 2vh;
+}

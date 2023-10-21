@@ -1,0 +1,10 @@
+.info-form{
+    width: 60%;
+    margin: auto;
+}
+
+.experience{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid grey;
+}
