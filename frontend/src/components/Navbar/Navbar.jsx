@@ -12,15 +12,16 @@ function Navbar() {
                 </a>
                 
             </div>
-            <div className="search-bar">
+            {/* <div className="search-bar">
                 <input className='search' placeholder='  Search by Company Name Ex. Amazon' type="text" />
-            </div>
+            </div> */}
             <div className="navs">
                 <ul>
                     <li> <a className='navlinks' href="/experiences">Experiences</a> </li>
+                    <li> <a className='navlinks' href="/addxp">Add Experience</a> </li>
                     <li> <a className='navlinks' href="/about">About Us</a> </li>
-                    <li> <a className='navlinks' href="/signup">Sign Up</a></li>
-                    <li> <a className='navlinks' href="/login">Log In</a> </li>
+                    {/* <li> <a className='navlinks' href="/signup">Sign Up</a></li>
+                    <li> <a className='navlinks' href="/login">Log In</a> </li> */}
                 </ul>
             </div>
         </div>

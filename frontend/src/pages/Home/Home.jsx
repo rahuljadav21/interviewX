@@ -8,7 +8,7 @@ import rarrow from "../../resources/rightErrow.png"
 import InterviewSlide from '../../components/InterviewSlide/InterviewSlide';
 
 function Home() {
-
+    let screenSize = window.screen.width;
     const compnies = [{
         name :  "amazon",
         logo : "https://upload.wikimedia.org/wikipedia/commons/6/62/Amazon.com-Logo.svg"
@@ -111,19 +111,19 @@ function Home() {
         <div className='main-container'>
             <div className="info">
                 <div className="info-text">
-                    <h1 className="info">
+                    <h1 className="infotext">
                         Unlock interview success with Interview X - Your gateway to real-world interview experiences and career insights.
                     </h1>
                 </div>
-                <div className="info-image">
-                    <img src={InfoImg} alt='info logo' />
+                <div >
+                    <img className="info-image" src={InfoImg} alt='info logo' />
                 </div>
             </div>
             <div className="companies-slider">
                 <h2 className='top-companies'>
                     Top Companies
                 </h2>
-                <Carousel rightArrow={<img style={{height:"3vh"}} src={rarrow} alt='right errow'></img>} leftArrow ={<img style={{height:"3vh"}} src={larrow} alt='left arrow'></img>} swiping={true} show={6} slide={2} transition={0.5}>
+                <Carousel rightArrow={<img style={{height:"3vh"}} src={rarrow} alt='right errow'></img>} leftArrow ={<img style={{height:"3vh"}} src={larrow} alt='left arrow'></img>} swiping={true} show={ (screenSize < 600) ? 1.5 : 6 } slide={2} transition={0.5}>
                     {
                         renderCompanies()
                     }
@@ -133,7 +133,7 @@ function Home() {
             <h2 className='top-companies'>
                     Top Interview Experiences
                 </h2>
-                <Carousel rightArrow={<img style={{height:"3vh"}} src={rarrow} alt='right errow'></img>} leftArrow ={<img style={{height:"3vh"}} src={larrow} alt='left arrow'></img>}  swiping={true} show={3.5} slide={2} transition={0.5}>
+                <Carousel rightArrow={<img style={{height:"3vh"}} src={rarrow} alt='right errow'></img>} leftArrow ={<img style={{height:"3vh"}} src={larrow} alt='left arrow'></img>}  swiping={true} show={ (screenSize < 600) ? 1 : 6 } slide={2} transition={0.5}>
                     {
                         renderInterviewXps()
                     }

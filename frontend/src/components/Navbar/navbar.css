@@ -56,3 +56,74 @@
     border-radius: 3px;
     outline: none;
 }
+
+@media only screen and (max-width: 600px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 15vh;
+        align-content: center;
+        background-color: #279EFF;
+        align-items: flex-start;
+    }
+    .logo {
+        height: 2.5vh;
+        margin-top: 3vh;
+    }
+    .info {
+        display: flex;
+        align-items: center;
+        width: auto;
+        margin-right: 4vh;
+        flex-wrap: wrap;
+        margin-left: 5vh;
+        justify-content: center;
+    }
+    .info-image{
+        height: 40vh;
+    }
+    .infotext{
+        font-size: 1.5em;
+    }
+    .main-container{
+        overflow: auto;
+    }
+    .slide-container {
+        display: flex;
+        flex-direction: column;
+        border-radius: 1vh;
+        margin: 1vh 1vh;
+        padding: 0px 1vh;
+        width: 30vh;
+        background: whitesmoke;
+        /* border: 1px solid; */
+        box-shadow: 1px 1px 7px 0px;
+        /* height: 23vh; */
+        justify-content: space-between;
+    }
+
+    .filterbar {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .other-filter {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .other-filter {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .xps {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        align-items: center;
+    }
+  }

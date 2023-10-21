@@ -6,7 +6,7 @@ function CompanySlide(props) {
     <div className='container'>
       <div >
         <a href="/">
-        <img className="logo" src={props.logo} alt="" />
+        <img className="com-logo" src={props.logo} alt="" />
         </a>
       </div>
       <div >

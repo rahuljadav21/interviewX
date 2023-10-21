@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef } from 'react';
 import JoditEditor from 'jodit-react';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -12,9 +12,6 @@ function AddInterviewXp() {
     
     const editor = useRef(null);
 	const [content, setContent] = useState('');
-    const renderContent = () => {
-        return content;
-    }
 
     return (
         <div className='info-form'>

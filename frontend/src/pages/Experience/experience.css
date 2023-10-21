@@ -1,0 +1,61 @@
+.candidate{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.cad-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 2vh 0vh;
+    align-content: space-between;
+}
+
+.contact{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.titleFont{
+    font-size: x-large;
+    color: #279eff;
+}
+
+.cad-info div{
+    font-size: medium;
+    padding: 5px;
+    display: block;
+    width: 100%;
+    box-shadow: cornsilk;
+    margin: 6px 0px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px 0px;
+}
+
+.basic{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.interview-xp{
+    display: flex;
+    margin: 1vh 18vh;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.contact div h3{
+    color: #279eff;
+}
