@@ -1,0 +1,39 @@
+.other-filter{
+    display: flex;
+    flex-direction: row;
+}
+
+.filterbar{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.filter{
+    margin: 2vh 2vh;
+}
+
+.btn{
+    background: #279eff;
+    color: white;
+    border-radius: 1vh;
+    border: none;
+    font-size: large;
+    padding: 1vh;
+    margin: 2vh 2vh;
+    cursor: pointer;
+}
+
+.intxps{
+    margin: 1vh;
+}
+
+.xps{
+    display: flex;
+    flex-direction: column;
+    margin: 0% 20%;
+    align-items: stretch;
+}
+#clear{
+    background: red;
+}
