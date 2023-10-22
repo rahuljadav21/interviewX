@@ -133,7 +133,7 @@ function Home() {
             <h2 className='top-companies'>
                     Top Interview Experiences
                 </h2>
-                <Carousel rightArrow={<img style={{height:"3vh"}} src={rarrow} alt='right errow'></img>} leftArrow ={<img style={{height:"3vh"}} src={larrow} alt='left arrow'></img>}  swiping={true} show={ (screenSize < 600) ? 1 : 6 } slide={2} transition={0.5}>
+                <Carousel rightArrow={<img style={{height:"3vh"}} src={rarrow} alt='right errow'></img>} leftArrow ={<img style={{height:"3vh"}} src={larrow} alt='left arrow'></img>}  swiping={true} show={ (screenSize < 600) ? 1 : 4 } slide={2} transition={0.5}>
                     {
                         renderInterviewXps()
                     }

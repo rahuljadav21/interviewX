@@ -95,14 +95,11 @@
         border-radius: 1vh;
         margin: 1vh 1vh;
         padding: 0px 1vh;
-        width: 30vh;
+        width: 31vh;
         background: whitesmoke;
-        /* border: 1px solid; */
         box-shadow: 1px 1px 7px 0px;
-        /* height: 23vh; */
         justify-content: space-between;
     }
-
     .filterbar {
         display: flex;
         flex-wrap: wrap;
