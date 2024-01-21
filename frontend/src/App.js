@@ -22,7 +22,7 @@ function App() {
         <Route path='/interviewXp/:id' element ={ <Experience/>}/>
         <Route path='/addxp' element ={ <AddInterviewXp/>}/>
         <Route path='/about' element ={ <About/>}/>
-        <Route path='admin' element ={ <Admin/>}/>
+        <Route path='/admin' element ={ <Admin/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>
