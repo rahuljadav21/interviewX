@@ -4,10 +4,6 @@ const Company = require("../models/companyModel");
 const createInterviewExperience = async (req, res) => {
     try {
         const interviewExperience = await InterviewExperienceSchema.create(req.body);
-        const company = await Company.create({
-            companyName:req.body.companyName,
-            label:req.body.companyName
-        })
         res.status(201).json({ interviewExperience });
     } catch (err) {
         res.status(400).json({ message: err.message });

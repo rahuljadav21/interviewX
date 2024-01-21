@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import baseURL from "../../constant.json"
 function Experience() {
-    console.log(baseURL.baseURL)
+
     function getCookie(name) {
         const cookies = document.cookie.split('; ');
         for (const cookie of cookies) {

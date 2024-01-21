@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import JoditEditor from 'jodit-react';
 import axios from 'axios';
 import './addinterviewxp.css'
-
+import baseURL from '../../constant.json'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AddInterviewXp() {
@@ -44,8 +44,9 @@ function AddInterviewXp() {
 
       const handleSubmit =(e)=> {
         e.preventDefault();
+        setFormData({ ...formData, experience: content })  
         console.log(formData);
-        axios.post('http://localhost:5000/api/v1/interviewXps/', formData).then((res) => {
+        axios.post(baseURL.baseURL+'interviewXps/', formData).then((res) => {
             console.log(res);
             
             window.location.replace("/experiences/");
@@ -326,6 +327,7 @@ function AddInterviewXp() {
                     ref={editor}
                     value={formData.experience}
                     tabIndex={1} // tabIndex of textarea
+                    onChange={newContent => {setContent(newContent);}} // preferred to use only this option to update the content for performance reasons
                     onBlur={newContent => {setContent(newContent); setFormData({ ...formData, experience: content })  }} // preferred to use only this option to update the content for performance reasons
                 />
                 
