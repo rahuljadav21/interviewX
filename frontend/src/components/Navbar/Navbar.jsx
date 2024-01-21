@@ -2,6 +2,20 @@ import React from 'react'
 import './navbar.css'
 
 function Navbar() {
+    function getCookie(name) {
+        const cookies = document.cookie.split('; ');
+        for (const cookie of cookies) {
+          const [cookieName, cookieValue] = cookie.split('=');
+          if (cookieName === name) {
+            return cookieValue;
+          }
+        }
+        return null;
+    }
+
+    function logOut(){
+        document.cookie = `access-token=; max-age=0; path=/`;
+    }
     return (
         <div className='navbar'>
             <div className="logo-container">
@@ -12,15 +26,17 @@ function Navbar() {
                 </a>
                 
             </div>
-            <div className="search-bar">
+            {/* <div className="search-bar">
                 <input className='search' placeholder='  Search by Company Name Ex. Amazon' type="text" />
-            </div>
+            </div> */}
             <div className="navs">
                 <ul>
                     <li> <a className='navlinks' href="/experiences">Experiences</a> </li>
+                    <li> <a className='navlinks' href="/addxp">Add Experience</a> </li>
                     <li> <a className='navlinks' href="/about">About Us</a> </li>
-                    <li> <a className='navlinks' href="/signup">Sign Up</a></li>
-                    <li> <a className='navlinks' href="/login">Log In</a> </li>
+                    {getCookie('access-token') ? <li> <a className='navlinks' href="/" onClick={logOut}>LogOut</a> </li> : "" }
+                    {/* <li> <a className='navlinks' href="/signup">Sign Up</a></li>
+                    <li> <a className='navlinks' href="/login">Log In</a> </li> */}
                 </ul>
             </div>
         </div>

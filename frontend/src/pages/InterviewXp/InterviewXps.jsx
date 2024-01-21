@@ -1,59 +1,54 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Select from 'react-select';
 import './interviewxp.css'
 import InterviewSlide from '../../components/InterviewSlide/InterviewSlide';
+import { Link } from 'react-router-dom';
+import baseURL from "../../constant.json"
 
 function InterviewXp() {
-
-  const interviewExperences = [
-    {
-      id: '1',
-      companyName: 'JP Morgan',
-      candidateName: 'Rahul Jadav',
-      driveType: 'On Campus',
-      hiringYear: '2023',
-      jobType: 'Internship'
-    },
-    {
-      id: '2',
-      companyName: 'Wells Fargo',
-      candidateName: 'Drishey Singh',
-      driveType: 'On Campus',
-      hiringYear: '2023',
-      jobType: 'Full Time'
-    },
-    {
-      id: '3',
-      companyName: 'Aspect Ratio',
-      candidateName: 'Preyansh vora',
-      driveType: 'On Campus',
-      hiringYear: '2023',
-      jobType: 'Full Time'
-    },
-    {
-      id: '4',
-      companyName: 'PWS',
-      candidateName: 'Karm Patel',
-      driveType: 'On Campus',
-      hiringYear: '2023',
-      jobType: 'Full Time'
-    },
-    {
-      id: '5',
-      companyName: 'GE Healthcare',
-      candidateName: 'Rahul Jadav',
-      driveType: 'On Campus',
-      hiringYear: '2023',
-      jobType: 'Full Time'
-    }
-  ]
-
+  
   const [driveState, setDriveState] = useState([]);
   const [yearState, setYearState] = useState([]);
   const [jobTypeState, setJobTypeState] = useState([]);
   const [companiesState, setCompaniesState] = useState([]);
-  const [currentXps,setCurrentXps] = useState(interviewExperences);
+  const [interviewXps, setInterviewXps] = useState([]);
+  const [currentXps,setCurrentXps] = useState([]);
 
+  function getCookie(name) {
+    const cookies = document.cookie.split('; ');
+    for (const cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.split('=');
+      if (cookieName === name) {
+        return cookieValue;
+      }
+    }
+    return null;
+  }
+
+  const fetchComanies = (interviewXps) => { 
+    const companiess = [];
+    interviewXps.forEach((i) => {
+      if(!companiess.includes(i.companyName)){
+        companiess.push(i.companyName);
+      }
+    })
+    let cmpns = [];
+    companiess.forEach((c) => {  
+      cmpns.push({value: c, label: c})
+    })
+    return cmpns;
+  }
+  let url = getCookie('access-token') ? baseURL.baseURL+"interviewXps/all" : baseURL.baseURL+"interviewXps/";
+  useEffect(() => {
+   fetch(url)
+  .then(res => res.json())
+  .then(res => {
+    setInterviewXps(res.interviewExperiences)
+    setCurrentXps(res.interviewExperiences)
+  })
+
+  }, [url]);
+  let companies =  fetchComanies(interviewXps)
   const drive = [
     { value: 'On Campus', label: 'On Campus' },
     { value: 'Off Campus', label: 'Off Campus' }
@@ -70,24 +65,7 @@ function InterviewXp() {
     { value: 'Internship', label: 'Internships' }
   ]
 
-  const companies = [
-    { value: 'Amazon', label: 'Amazon' },
-    { value: 'JP Morgan', label: 'JP Morgan' },
-    { value: 'Wells Fargo', label: 'Wells Fargo' },
-    { value: 'Aspect Ratio', label: 'Aspect Ratio' },
-    { value: 'PWS', label: 'PWS' },
-    { value: 'GE Healthcare', label: 'GE Healthcare' }
-  ]
 
-  
-
-  const setCompanies = (e) => {
-    const cmpns = [];
-    e.forEach(c => {
-      cmpns.push(c.value);
-    });
-    setCompaniesState(cmpns);
-  }
 
   const setYear =(e) => {
     const yrs = [];
@@ -113,33 +91,37 @@ function InterviewXp() {
     setDriveState(dtype);
   }
 
-  const filterHandler = () => {
-    console.log(driveState)
-    console.log(yearState)
-    console.log(jobTypeState)
-    console.log(companiesState)
+  const setCmpns = (e) => {
+    const cmpns = [];
+    e.forEach(c => {
+      cmpns.push(c.value);
+    });
+    setCompaniesState(cmpns);
+  }
 
-    let currXps = interviewExperences;
+  const filterHandler = () => {
+    
+    let currXps = interviewXps;
 
     if(driveState.length !==0){
-      currXps = interviewExperences.filter((xp)=>{
+      currXps = interviewXps.filter((xp)=>{
         return driveState.includes(xp.driveType);
      })
     }
     
     if(yearState.length !==0){
-      currXps = interviewExperences.filter((xp)=>{
+      currXps = interviewXps.filter((xp)=>{
         return yearState.includes(xp.hiringYear);
       })
     }
     
     if(jobTypeState.length !==0){
-      currXps = interviewExperences.filter((xp)=>{
+      currXps = interviewXps.filter((xp)=>{
         return jobTypeState.includes(xp.jobType);
       })
     }
     if(companiesState.length !==0){
-      currXps = interviewExperences.filter((xp)=>{
+      currXps = interviewXps.filter((xp)=>{
         return companiesState.includes(xp.companyName);
       })
     }
@@ -150,9 +132,11 @@ function InterviewXp() {
     let topInterviewXps = [];
     currentXps.forEach((i) => {
       topInterviewXps.push(
-        <InterviewSlide className="intxps" companyName={i.companyName} candidateName={i.candidateName}
-          driveType={i.driveType} hiringYear={i.hiringYear}
+        <Link to={`/interviewXp/${i._id}`}>
+        <InterviewSlide key = {i._id} className="intxps" companyName={i.companyName} candidateName={i.candidateName}
+          driveType={i.driveType} verified = {i.verified} hiringYear={i.hiringYear} hiringMonth={i.hiringMonth} 
         />
+        </Link>
       )
     })
     return topInterviewXps
@@ -170,7 +154,7 @@ function InterviewXp() {
             options={companies}
             className="basic-multi-select filter"
             classNamePrefix="select"
-            onChange={setCompanies}
+            onChange={setCmpns}
           />
           <Select className='filter' isMulti options={drive}
             placeholder="Drive"
@@ -202,4 +186,11 @@ function InterviewXp() {
   )
 }
 
-export default InterviewXp
+
+function InterviewXps() {
+  return (
+    <InterviewXp/ >
+  )
+}
+
+export default InterviewXps
