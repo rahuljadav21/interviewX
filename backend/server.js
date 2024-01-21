@@ -25,6 +25,9 @@ app.use("/api/v1/interviews", interviewRoutes);
 app.use("/api/v1/companies", companyRoutes);
 app.use("/api/v1/interviewXps", interviewXpRoutes);
 app.use("/api/v1/admin",adminRoutes);
+app.get('/', (req, res) => {
+    res.send("<h3>API works.</h3>")
+});
 
 app.use(errorHandler);
 app.use(cors({ credentials: true,origin: 'http://localhost:3000'}));
