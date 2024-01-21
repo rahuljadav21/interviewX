@@ -30,7 +30,7 @@ function Navbar() {
                 <input className='search' placeholder='  Search by Company Name Ex. Amazon' type="text" />
             </div> */}
             <div className="navs">
-                <ul>
+                <ul><li> <a className='navlinks' href="/">Home</a> </li>
                     <li> <a className='navlinks' href="/experiences">Experiences</a> </li>
                     <li> <a className='navlinks' href="/addxp">Add Experience</a> </li>
                     <li> <a className='navlinks' href="/analysis">Placement Analysis</a> </li>

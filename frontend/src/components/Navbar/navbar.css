@@ -8,6 +8,8 @@
     align-content: center;
     background-color: #279EFF;
     align-items: center;
+    position: sticky;
+    top: 0;
 }
 *:focus {
     outline: none;
