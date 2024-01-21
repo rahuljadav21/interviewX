@@ -3,9 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import InterviewXp from './pages/InterviewXp/InterviewXp';
+import InterviewXps from './pages/InterviewXp/InterviewXps';
 import Experience from './pages/Experience/Experience';
 import AddInterviewXp from './pages/AddInterviewXp/AddInterviewXp';
+import About from './pages/About/About';
+import Admin from './pages/Admin/Admin';
 // import "../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 
@@ -16,9 +18,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={< Home/>} />
-        <Route path='/experiences' element= {<InterviewXp/>}/>
-        <Route path='/interviewxp' element ={ <Experience/>}/>
+        <Route path='/experiences' element= {<InterviewXps/>}/>
+        <Route path='/interviewXp/:id' element ={ <Experience/>}/>
         <Route path='/addxp' element ={ <AddInterviewXp/>}/>
+        <Route path='/about' element ={ <About/>}/>
+        <Route path='admin' element ={ <Admin/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>

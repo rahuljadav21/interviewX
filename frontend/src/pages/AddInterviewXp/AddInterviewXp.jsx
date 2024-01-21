@@ -1,21 +1,20 @@
 import React, { useState, useRef } from 'react';
 import JoditEditor from 'jodit-react';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import axios from 'axios';
 import './addinterviewxp.css'
 
-import parse from 'html-react-parser';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AddInterviewXp() {
 
 
     const editor = useRef(null);
-    const [content, setContent] = useState('');
+    const [content, setContent] = useState(''); 
     const [formData, setFormData] = useState({
         candidateName: '',
         email: '',
         linkedIn: '',
+        batch:'',
         mobile: '',
         degree: 'Select Degree',
         branch: 'Select Branch',
@@ -23,6 +22,9 @@ function AddInterviewXp() {
         hiringMonth: 'Select Month',
         jobType: '',
         driveType: '',
+        leetcode: '',
+        codeforces: '',
+        codechef: '',
         companyName: '',
         offeredRole: '',
         rounds: '',
@@ -40,11 +42,18 @@ function AddInterviewXp() {
         setFormData({ ...formData, difficulty: (e.target.value) });
       };
 
-      const handleSubmit =()=> {
+      const handleSubmit =(e)=> {
+        e.preventDefault();
         console.log(formData);
+        axios.post('http://localhost:5000/api/v1/interviewXps/', formData).then((res) => {
+            console.log(res);
+            
+            window.location.replace("/experiences/");
+            }).catch((err) => {
+            console.log(err);
+            });
       }
     
-
     return (
         <div className='info-form'>
             <div className="form-group">
@@ -83,6 +92,52 @@ function AddInterviewXp() {
                 />
             </div>
             <div className="form-group">
+                <label htmlFor="gitgub">GitHub</label>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="github"
+                    name="github"
+                    value={formData.github}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="linkedIn">LeetCode</label>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="leetcode"
+                    name="leetcode"
+                    value={formData.leetcode}
+                    onChange={handleInputChange}
+                    placeholder='(optional) ex. https://leetcode.com/profile/xyz'
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="codeforces">Codeforces</label>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="codeforces"
+                    name="codeforces"
+                    value={formData.codeforces}
+                    onChange={handleInputChange}placeholder='(optional) ex. https://codeforces.com/profile/xyz'
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="codechef">Codechef</label>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="codechef"
+                    name="codechef"
+                    value={formData.codechef}
+                    onChange={handleInputChange}
+                    placeholder='(optional) ex. https://codechef.com/profile/xyz'
+                />
+            </div>
+            <div className="form-group">
                 <label htmlFor="mobile">Mobile</label>
                 <input
                     type="number"
@@ -103,9 +158,9 @@ function AddInterviewXp() {
                     onChange={handleInputChange}
                 >
                     <option>Select Degree</option>
-                    <option value="btech">B.Tech</option>
-                    <option value="msc">M.Sc</option>
-                    <option value="mtech">M.Tech</option>
+                    <option value="B.tech">B.Tech</option>
+                    <option value="M.Sc">M.Sc</option>
+                    <option value="M.Tech">M.Tech</option>
                 </select>
             </div>
             <div className="form-group">
@@ -117,13 +172,25 @@ function AddInterviewXp() {
                     onChange={handleInputChange}
                 >
                     <option>Select Branch</option>
-                    <option value="cs">Computer Science and Engineering</option>
-                    <option value="ece">Electronics and Communication Engineering</option>
-                    <option value="ee">Electrical Engineering</option>
-                    <option value="me">Mechanical Engineering</option>
-                    <option value="che">Chemical Engineering</option>
-                    <option value="ce">Civil Engineering</option>
+                    <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+                    <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
+                    <option value="Electrical Engineering">Electrical Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Chemical Engineering">Chemical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
                 </select>
+            </div>
+            <div className="form-group">
+                <label htmlFor="batch">Batch </label>
+                <input
+                    type="number"
+                    className="form-control"
+                    id="batch"
+                    name="batch"
+                    value={formData.batch}
+                    onChange={handleInputChange}
+                    placeholder="Graduation year ex. 2024"
+                />
             </div>
             <div className="form-group">
                 <label htmlFor="hiringYear">Year of Hiring </label>
@@ -207,7 +274,7 @@ function AddInterviewXp() {
                     value={formData.driveType}
                     onChange={handleInputChange}
                 >
-                    <option>Select Degree</option>
+                    <option>Select Drive Type</option>
                     <option value="On Campus">On Campus</option>
                     <option value="Off Campus">Off Campus</option>
                     

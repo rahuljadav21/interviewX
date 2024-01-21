@@ -3,7 +3,7 @@ import './interviewslide.css'
 
 function InterviewSlide(props) {
   return (
-    <div className='slide-container'>
+    <div className='slide-container' style={{background: props.verified ? 'white':'#fcdacf' }}>
       <div className="sec1">
         <div className="companyname">
           <h1 className='company-name'>
@@ -11,7 +11,7 @@ function InterviewSlide(props) {
           </h1>
         </div>
         <div className="time">
-            <p>{props.time}</p>
+            <p>{props.hiringMonth +" "+props.hiringYear}</p>
         </div>
       </div>
       <div className="sec2">

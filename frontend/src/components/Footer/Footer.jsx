@@ -4,20 +4,20 @@ function Footer() {
   return (
     <div className='footer'>
         <div className="copyright">
-            copyright@2023
+            copyright@2024
         </div>
         <div >
-            Made with Passion By
+            Made with Passion 🔥🔥
             <div>
             <ul className="contributors">
                 <li>
                     <a target='_blank' rel="noreferrer" href="https://www.linkedin.com/in/rahuljadav21">
-                        Rahul Jadav
+                       Developed By Rahul Jadav
                     </a>
                 </li>
                 <li>
                     <a target='_blank' rel="noreferrer" href="https://www.linkedin.com/in/karmkumar-patel/">
-                        Karm Patel
+                       Managed By Karm Patel
                     </a>
                 </li>
             </ul>

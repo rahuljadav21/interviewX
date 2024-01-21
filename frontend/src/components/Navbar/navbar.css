@@ -61,14 +61,14 @@
     .navbar {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        height: 15vh;
+        justify-content: center;
+        height: 14vh;
         align-content: center;
         background-color: #279EFF;
         align-items: flex-start;
     }
     .logo {
-        height: 2.5vh;
+        height: 3vh;
         margin-top: 3vh;
     }
     .info {
