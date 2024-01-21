@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import baseURL from '../../constant.json'
 function Admin() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const handleSubmitt = (e) => {
         e.preventDefault();
         console.log('clicked')
-        axios.post('http://localhost:5000/api/v1/admin/login', {
+        axios.post(baseURL.baseURL+'admin/login', {
             username: username,
             password: password
         }).then((res) => {
