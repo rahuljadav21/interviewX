@@ -8,6 +8,7 @@ import Experience from './pages/Experience/Experience';
 import AddInterviewXp from './pages/AddInterviewXp/AddInterviewXp';
 import About from './pages/About/About';
 import Admin from './pages/Admin/Admin';
+import Analysis from './pages/Analysis/Analysis';
 // import "../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path='/addxp' element ={ <AddInterviewXp/>}/>
         <Route path='/about' element ={ <About/>}/>
         <Route path='/admin' element ={ <Admin/>}/>
+        <Route path='/analysis' element={<Analysis />} />
       </Routes>
       <Footer/>
     </BrowserRouter>
